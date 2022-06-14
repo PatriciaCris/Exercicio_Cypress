@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import EnderecoPage from '../support/page-objects/endereco.page'
 
 describe('Funcionalidade Endereços = Faturamento e Entrega', () => {
 
@@ -9,8 +10,9 @@ describe('Funcionalidade Endereços = Faturamento e Entrega', () => {
         })
     });
 
-    it('Deve fazer cadastro de faturamento com sucesso', () => {
+    it.only('Deve fazer cadastro de faturamento com sucesso', () => {
         
-        //cadastro de endereço
+        EnderecoPage.editarEnderecoFaturamento('Cristina', 'Sampaio', 'Facebook', 'Brasil', 'Rua dos Bobos', '0', 'Manaus', 'Amazonas', '12345678', '9888888888', 'pedro@sampaio.com')
+        cy.get('.woocommerce-message').should('contain', 'Endereço alterado com sucesso.')
     });
 });
